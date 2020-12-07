@@ -5,7 +5,7 @@ class Config:
     
 
     UPLOADED_PHOTOS_DEST ='app/static/photos'
-    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres:bridgit@localhost/pitch'
     SQLALCHEMY_TRACK_MODIFICATIONS = True
     SECRET_KEY=os.environ.get('SECRET_KEY')
 
@@ -20,7 +20,7 @@ class Config:
 
 class ProdConfig(Config):
 
-    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres:bridgit@localhost/pitch'
 
 class DevConfig(Config):
     DEBUG = True
