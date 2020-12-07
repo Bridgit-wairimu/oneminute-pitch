@@ -1,9 +1,11 @@
-from flask import render_template, redirect, url_for,abort,request
+from flask import render_template,redirect,url_for,abort,request
 from . import main
 from flask_login import login_required,current_user
-from ..models import User,Pitch,Comment
-from .forms import UpdateProfile,PitchForm,CommentForm
+from ..models import User,Comment,Pitch
+from .forms import UpdateProfile,CommentForm,PitchForm
 from .. import db,photos
+
+
 
 @main.route('/')
 def index():
@@ -26,7 +28,32 @@ def new_pitch():
         new_pitch_object.save_p()
         return redirect(url_for('main.index'))
         
-    return render_template('create_pitch.html', form = form)
+    return render_template('pitch.html', form = form)
+
+
+@main.route('/user/<name>')
+def profile(name):
+    user = User.query.filter_by(username = name).first()
+    user_id = current_user._get_current_object().id
+    pitch = Pitch.query.filter_by(user_id = user_id).all()
+    if user is None:
+        abort(404)
+
+    return render_template("profile/profile.html", user = user,pitch=pitch)
+
+@main.route('/user/<name>/updateprofile', methods = ['POST','GET'])
+@login_required
+def updateprofile(name):
+    form = UpdateProfile()
+    user = User.query.filter_by(username = name).first()
+    if user == None:
+        abort(404)
+    if form.validate_on_submit():
+        user.bio = form.bio.data
+        user.save_u()
+        return redirect(url_for('.profile',name = name))
+    return render_template('profile/update.html',form =form)
+
 
 @main.route('/comment/<int:pitch_id>', methods = ['POST','GET'])
 @login_required
@@ -44,31 +71,9 @@ def comment(pitch_id):
     return render_template('comment.html', form =form, pitch = pitch,all_comments=all_comments)
 
 
-@main.route('/user/<name>')
-def profile(name):
-    user = User.query.filter_by(username = name).first()
-    user_id = current_user._get_current_object().id
-    posts = Pitch.query.filter_by(user_id = user_id).all()
-    if user is None:
-        abort(404)
-
-    return render_template("profile/profile.html", user = user,posts=posts)
-
-@main.route('/user/<name>/updateprofile', methods = ['POST','GET'])
-@login_required
-def updateprofile(name):
-    form = UpdateProfile()
-    user = User.query.filter_by(username = name).first()
-    if user == None:
-        abort(404)
-    if form.validate_on_submit():
-        user.bio = form.bio.data
-        user.save_u()
-        return redirect(url_for('.profile',name = name))
-    return render_template('profile/update.html',form =form)
 
 
-@main.route('/user/<name>/update/pic',methods= ['POST'])
+@main.route('/user/<uname>/update/pic',methods= ['POST'])
 @login_required
 def update_pic(name):
     user = User.query.filter_by(username = name).first()
