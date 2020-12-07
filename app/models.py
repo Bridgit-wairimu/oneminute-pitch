@@ -44,8 +44,6 @@ class Pitch(UserMixin,db.Model):
     title = db.Column(db.String(255),nullable = False)
     pitch = db.Column(db.Text(), nullable = False)
     comment = db.relationship('Comment',backref='pitch',lazy='dynamic')
-    # upvote = db.relationship('Upvote',backref='pitch',lazy='dynamic')
-    # downvote = db.relationship('Downvote',backref='pitch',lazy='dynamic')
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     time = db.Column(db.DateTime, default = datetime.utcnow)
     category = db.Column(db.String(255), index = True,nullable = False)
