@@ -8,10 +8,11 @@ from .. import db,photos
 @main.route('/')
 def index():
     pitches = Pitch.query.all()
-    business = Pitch.query.filter_by(category = 'business').all() 
-    life = Pitch.query.filter_by(category = 'life').all()
+    life= Pitch.query.filter_by(category = 'life').all() 
+    business = Pitch.query.filter_by(category = 'business').all()
     advertisement = Pitch.query.filter_by(category = 'Advertisement').all()
     return render_template('index.html', business = business,life = life, pitches = pitches,advertisement= advertisement)
+
 
 @main.route('/create_new', methods = ['POST','GET'])
 @login_required
@@ -22,7 +23,7 @@ def new_pitch():
         pitch = form.pitch.data
         category = form.category.data
         user_id = current_user
-        new_pitch_object = Pitch(post=post,user_id=current_user._get_current_object().id,category=category,title=title)
+        new_pitch_object = Pitch(pitch=pitch,user_id=current_user._get_current_object().id,category=category,title=title)
         new_pitch_object.save_p()
         return redirect(url_for('main.index'))
         
