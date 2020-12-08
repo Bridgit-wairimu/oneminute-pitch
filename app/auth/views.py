@@ -20,7 +20,7 @@ def login():
         flash('Invalid username or Password')
 
     title = "pitch login"
-    return render_template('auth/login.html',login_form = form,title=title)
+    return render_template('auth/login.html',form = login_form,title=title)
 
 @auth.route('/register',methods = ["GET","POST"])
 def register():
