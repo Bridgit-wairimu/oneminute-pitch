@@ -1,38 +1,26 @@
 {% extends 'base.html'%}
-{% import 'bootstrap/wtf.html' as wtf %}
+{% import "bootstrap/wtf.html" as wtf %}
 
 {% block content %}
-    <div class="container" id="allcomments" >
-        <div class="row">
+<body>
+<br><br> <br>
+<h3 class="text-center" ><u>New Comments</u></h2>
+  {% for comment in comment[::-1] %}
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4"></div>
+        <div class="card-groups">
+          <div class="card">
 
-            {% if all_comments %}
-                <div class="col-md-7" >
-                    <h3 class="text-center" id="coms">All comments for the post</h3>
-                    {% for comment in all_comments %}
-                       <div class="card w-90 mb-3" >
-                           <div class="card-body">
-                            <h5>{{comment.pitch.title}}</h5>
-                             <p class="card-title">{{ comment.comment }}</p>
-                             <p class="card-text"> {{comment.user.username}}</p>
-                           </div>
-                       </div>
-                    {% endfor %}
-                   </div>
-                   <div class="col-md-5  commentform" >
+            <div class="card-body">
+              <p class="card-text">{{comment.comment}}.</p>
+            </div>
 
-                        {{wtf.quick_form(form)}}
-                   </div>
-               </div>
-            {%else%}
-            <div class="card w-90 mb-3">
-                <div class="card-body">
-                  <p class="card-title">No Comments yet</p>
-                </div>
-            </div> 
-            <div class="col-md-5">
-                    {{wtf.quick_form(form)}}
-                </div>
-            {%endif%}
-    </div>
-   
-{% endblock%}
+            <div class="card-footer bg-transparent border-success"><small>Published on:{{comme.date_posted.strftime('%Y-%m-%d %H:%m')}}</small></div>
+          </div>
+    
+      <div class="col-md-4"></div>
+    </div>  
+  {% endfor %}
+</body>
+  {% endblock %}

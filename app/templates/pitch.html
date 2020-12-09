@@ -1,19 +1,84 @@
-{% extends 'base.html'%}
-{% import 'bootstrap/wtf.html' as wtf %}
+{% extends 'base.html' %}
+{% import 'macros.html' as macro %}
 
 
+{% block header %}
+	<h1>{% block title %}One Minute Pitch - User Profile{% endblock %}</h1>
+{% endblock %}
+
+
+<!-- Content block -->
 {% block content %}
 
-    <div  id="particles-js"  >  
-            <div class=" row" >
-                    
-                    <div class="col-md-2"></div>
-                    <div class="col-md-8" id="postform">
-                        <h2 class="text-center">Write Your Pitch !</h2>
-                        {{wtf.quick_form(form)}}
-                    </div>
-                    <div class="col-md-2"></div>
-            </div>
-    </div>
-   
+<div class="form-group mb15 mt20 post-pitch">
+    <textarea class="form-control" rows="5" spellcheck="false" placeholder="Post a Pitch ..." rows="1"></textarea>
+    <button class="btn btn-primary btn-block btn-sm btn-no-radius ">Post Pitch</button>
+</div>
+
+<div class="container pitches-page">
+	<div class="row pitches">
+	    <div id="wrapper" class="home">
+		    <div class="archive">
+
+				<ul class="nav nav-tabs categories">
+					<li class="active"><a href="#technologies" data-toggle="tab">Advertisement<span class="badge">3</span></a></li>
+					<li><a href="#business" data-toggle="tab">Business<span class="badge">0</span></a></li>
+					</ul>
+
+				<!-- Tab panes -->
+				<div class="tab-content mt30 mb30">
+					<div class="tab-pane active" id="Advertisement">
+						<ul id="post-list">
+                
+			                <li>
+			                    <a href="">
+			                        <aside class="dates"></aside>
+			                    </a>
+			                    <p class="mb0">Posted by</p>
+			                    <a href="">
+			                        Beatrice
+			                    </a>
+			                    <h2 class="headline">
+			                        I am considering opening a high end Italian restaurant in downtown London because there are currently no such restaurants there.          </h2>
+			                    
+			                </li>
+
+			                <li>
+			                    <a href="">
+			                        <aside class="dates">Mar 10</aside>
+			                    </a>
+			                    <a href="">
+			                        Maxwell
+			                    </a>
+			                    <h2 class="headline">
+                                    I recently launched a website for people who like to work on classic cars. The website has articles and videos with tutorials on how to work on cars.			                    </h2>
+			                </li>
+
+			                <li>
+			                    <a href="">
+			                        <aside class="dates">April 11</aside>
+			                    </a>
+			                    <a href="">
+			                        Adrian
+			                    </a>
+			                    <h2 class="headline">
+                                    I am in the planning stages of opening a residential lawn care and gardening company in San Francisco which will focus on providing the best customer experience with the lowest prices.			                    
+			            </ul>
+					</div>
+					<div class="tab-pane" id="business">
+					</div>
+					<div class="tab-pane" id="Advertisement">
+					</div>
+				</div>
+	        </div>
+    	</div>
+	</div>
+</div>
+
+<footer class="registerUser" id="footer">
+    <p class="small">
+         Powered by
+        <p> © Copyright 2019. One Minute Pitch Application.</p>
+</footer>
+
 {% endblock%}

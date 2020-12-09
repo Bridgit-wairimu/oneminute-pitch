@@ -1,38 +1,84 @@
-{% extends 'base.html'%}
+{% extends 'base.html' %}
 {% import 'macros.html' as macro %}
 
+  
+<!-- Content block -->
 {% block content %}
-    
-        <div  class="container" >
-                <h2 class="text-center" id="posts"> Pitches</h2>
-            <ul class="nav nav-pills nav-justified nav-fill" role="tablist">
-                <li class="nav-item" >
-                    <a id ="cats" class="nav-link" data-toggle="tab" href="#all"><strong> Pitches</strong> </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" id ="cats" data-toggle="tab" href="#advert">Advert Pitches</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" id ="cats" data-toggle="tab" href="#business">Business Pitches</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" id ="cats"data-toggle="tab" href="#life">Life Pitches</a>
-                </li>
-            </ul>
-            <div class="tab-content">
-                <div  class="container tab-pane active" id="all"><br>
-                    {{ macro.display(pitches) }}
-                </div>
-                <div  class="container tab-pane fade" id="event"><br>
-                    {{ macro.display(life)}}
-                </div>
-                <div  class="container tab-pane fade" id="jobs"><br>
-                    {{ macro.display(business) }}
-                </div>
-                <div  class="container tab-pane fade" id="ads"><br>
-                    {{ macro.display(advertisement) }}
-                    
-                </div>
-            </div>
-        </div>
+
+<h1 style="font-size: xx-large; color: blue; font-family: 'Yesteryear', cursive, serif; text-align: center;">Welcome to one minute pitch</h1>
+
+
+<div class="form-group mb15 mt20 post-pitch">
+    <textarea class="form-control" rows="5" spellcheck="false" placeholder="Write your  Pitch ..." rows="1"  width="200px" height="100px"></textarea>
+</br>
+    <button class="btn btn btn-sm" href="../pitch/">Post Pitch</button>
+</div>
+
+<div class="container pitches-page">
+	<div class="row pitches">
+	    <div id="wrapper" class="home">
+		    <div class="archive">
+
+				<ul class="nav nav-tabs categories">
+					<li class="active"><a href="#technologies" data-toggle="tab">Advertisement<span class="badge">3</span></a></li>
+					<li><a href="#business" data-toggle="tab">Business<span class="badge">0</span></a></li>
+					</ul>
+
+				<!-- Tab panes -->
+				<div class="tab-content mt30 mb30">
+					<div class="tab-pane active" id="Advertisement">
+						<ul id="post-list">
+                
+			                <li>
+			                    <a href="">
+			                        <aside class="dates">dec/25/2020</aside>
+			                    </a>
+			                    <p class="mb0">Posted by</p>
+			                    <a href="">
+			                        Beatrice
+			                    </a>
+			                    <h2 class="headline">
+			                        <small style="font-size: small; color: black; text-align: center;">I am considering opening a high end Italian restaurant in downtown London because there are currently no such restaurants there.</small></h2>
+			                    
+			                </li>
+
+			                <li>
+                        <p class="mb0">Posted by</p>
+			                    <a href="">
+			                        <aside class="dates">Mar/10/2019 </aside>
+			                    </a>
+			                    <a href="">
+			                        Maxwell
+			                    </a>
+			                    <h2 class="headline">
+                                  <small style="font-size: small; color: black; text-align: center;">I recently launched a website for people who like to work on classic cars. The website has articles and videos with tutorials on how to work on cars.</small></h2>
+			                </li>
+
+			                <li>
+                        <p class="mb0">Posted by</p>
+			                    <a href="">
+			                        <aside class="dates">April/24/2020</aside>
+			                    </a>
+			                    <a href="">
+			                        Adrian
+			                    </a>
+			                    <h2 class="headline">
+                                  <small style="font-size: small; color: black; text-align: center;">I am in the planning stages of opening a residential lawn care and gardening company in San Francisco which will focus on providing the best customer experience with the lowest prices.</small></h2>			                    
+			            </ul>
+					</div>
+					<div class="tab-pane" id="business">
+					</div>
+					<div class="tab-pane" id="Advertisement">
+					</div>
+				</div>
+	        </div>
+    	</div>
+	</div>
+</div>
+
+<footer class="registerUser" id="footer">
+    <p class="small">
+         
+        <p style="text-align: center; background-color: black; color: white;">Powered by © Copyright 2019. One Minute Pitch Application.</p>
+</footer>
 {% endblock%}
