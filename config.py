@@ -15,7 +15,6 @@ class Config:
     MAIL_USERNAME = "kirikabridgit@gmail.com"
     MAIL_PASSWORD = "90892000"
 
-
 class ProdConfig(Config):
 
     SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
