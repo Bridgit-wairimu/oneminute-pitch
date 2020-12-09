@@ -23,6 +23,7 @@
 
 #### python version (3.6.3)
 
+
 # Running the app
 
 #### after cloning the app you have to create a test class and the class it self 
@@ -41,20 +42,6 @@
 #### ./run.py
 
 #### after that you are ready to go
-
-# User Stories
-#### . to click on an article and read it fully from the news source
-#### . to see the image,description and time the news article was created
-#### . to see all the news articles from the news source
-#### to see various news articles on the homepage
-
-
-# Behaviour Driven Development
-#### | Behaviour | input | output |
-
-#### | Display image,description,title and the day it was published | N/A | The articles image,title,description,title and date it was published|
-
-#### | Read the entire article | click on the title of the article | directed to the main source site to read the entire article |
 
 
 # Contact details
