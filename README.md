@@ -29,19 +29,14 @@
 #### after cloning the app you have to create a test class and the class it self 
 
 #### e.g (news.py) and (news_test.py)
-#### Then you should create another file in order to run your application e.g (run.py)
+#### Then you should create another file in order to run your application e.g (manage.py)
 
 #### Then go to your visual studio terminal or your external terminal the type the below commands
 
-#### #!/usr/bin/env python3.6  for (linux and mac)
+#### python manage.py runserver or shell 
+#### ./start.sh/
+#### python3.6 (depending on which version you installed) manage.py runserver .
 
-#### #!/usr/bin/env python for windows
-
-#### chmod +x run.py  { run.py is the name for the class}
-
-#### ./run.py
-
-#### after that you are ready to go
 
 # Live Link
 #### https://pitch2020.herokuapp.com/
