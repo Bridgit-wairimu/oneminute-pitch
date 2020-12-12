@@ -13,7 +13,7 @@ class Config:
     MAIL_PORT = 587
     MAIL_USE_TLS = True
     MAIL_USERNAME = "kirikabridgit@gmail.com"
-    MAIL_PASSWORD = "90892000"
+    MAIL_PASSWORD = "90#7&589@"
 
 class ProdConfig(Config):
 
@@ -24,11 +24,8 @@ class DevConfig(Config):
     DEBUG = True
 
 
-class TestConfig(Config):
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres:bridgit@localhost/pitch_test'
 
 config_options = {
     'development':DevConfig,
-    'production':ProdConfig,
-    'test':TestConfig
-}
+    'production':ProdConfig
+    }

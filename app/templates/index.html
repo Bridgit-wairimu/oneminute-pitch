@@ -1,83 +1,92 @@
-{% extends 'base.html' %}
-{% import 'macros.html' as macro %} 
+{% extends 'base.html'%}
 
-<!-- Content block -->
-{% block content %}
-
-<h1 style="font-size: xx-large; color: blue; font-family: 'Yesteryear', cursive, serif; text-align: center;">Welcome to one minute pitch</h1>
-
-
-<div class="form-group mb15 mt20 post-pitch">
-    <textarea class="form-control" rows="5" spellcheck="false" placeholder="Write your  Pitch ..." rows="1"  width="200px" height="100px"></textarea>
-</br>
-    <button class="btn btn btn-sm" href="../pitch/">Post Pitch</button>
-</div>
-
-<div class="container pitches-page">
-	<div class="row pitches">
-	    <div id="wrapper" class="home">
-		    <div class="archive">
-
-				<ul class="nav nav-tabs categories">
-					<li class="active"><a href="#technologies" data-toggle="tab">Advertisement<span class="badge">0</span></a></li>
-					<li><a href="#business" data-toggle="tab">Business<span class="badge">3</span></a></li>
-					</ul>
-
-				<!-- Tab panes -->
-				<div class="tab-content mt30 mb30">
-					<div class="tab-pane active" id="Advertisement">
-						<ul id="post-list">
-                
-			                <li>
-			                    <a href="">
-			                        <aside class="dates">dec/25/2020</aside>
-			                    </a>
-			                    <p class="mb0">Posted by</p>
-			                    <a href="">
-			                        Beatrice
-			                    </a>
-			                    <h2 class="headline">
-			                        <small style="font-size: small; color: black; text-align: center;">I am considering opening a high end Italian restaurant in downtown London because there are currently no such restaurants there.</small></h2>
-			                    
-			                </li>
-
-			                <li>
-                        <p class="mb0">Posted by</p>
-			                    <a href="">
-			                        <aside class="dates">Mar/10/2019 </aside>
-			                    </a>
-			                    <a href="">
-			                        Maxwell
-			                    </a>
-			                    <h2 class="headline">
-                                  <small style="font-size: small; color: black; text-align: center;">I recently launched a website for people who like to work on classic cars. The website has articles and videos with tutorials on how to work on cars.</small></h2>
-			                </li>
-
-			                <li>
-                        <p class="mb0">Posted by</p>
-			                    <a href="">
-			                        <aside class="dates">April/24/2020</aside>
-			                    </a>
-			                    <a href="">
-			                        Adrian
-			                    </a>
-			                    <h2 class="headline">
-                                  <small style="font-size: small; color: black; text-align: center;">I am in the planning stages of opening a residential lawn care and gardening company in San Francisco which will focus on providing the best customer experience with the lowest prices.</small></h2>			                    
-			            </ul>
-					</div>
-					<div class="tab-pane" id="business">
-					</div>
-					<div class="tab-pane" id="Advertisement">
-					</div>
-				</div>
-	        </div>
-    	</div>
-	</div>
-</div>
-
-<footer class="registerUser" id="footer">
-    <p class="small">
-         
-        <p style="text-align: center; background-color: black; color: white;">Powered by © Copyright 2019. One Minute Pitch Application.</p>
-</footer>
+{% block styles%} {{ super() }}
+<link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
 {% endblock %}
+
+
+{% block content %}
+  <h2 class="text-center"  style="color: white;     font-family: 'Yesteryear', cursive, serif; "><u>Welcome to oneminute-pitch</u></h2>
+<body >
+  <!-- <div class="container">  -->
+    <div class="col-md-4"></div> 
+    <div class="d-flex justify-content-center row">
+      <div class="card-groups">
+        <div class="card border-info mb-3 col-md-4" style="max-width: 35rem;">          
+          <div class="card-body">
+
+            <h5 class="card-title" style="color: white;"><u>Interviews Pitch</u></h5>
+            <li>
+              <a href="">
+                  <aside class="dates" style="color: white;">08/12/2017</aside>
+              </a>
+              <p class="mb0" style="color: white;">Posted by</p>
+              <a href="">
+                  Beatrice
+              </a> 
+            <p class="card-text" style="color: white;">“Hi, I’m Tom. I’ve spent the last eight years learning and growing in my role as Media Planner, where I’ve developed and optimized strategic media plans for our top client and managed a subset of planners as a Team Lead. 
+				One of my proudest achievements was a pro-bono project that was recognized as a top non-profit campaign last year. 
+				I’ve been interested in moving to non-profit for quite a while, and love what your company does in education. 
+				Would you mind telling me about any media planning needs you may have on the team?”</p>
+            
+        <button type="button" class="btn btn-success" style="color: white;"><a href='/comment/<int:pitch_id>'>Comment Pitch</a></button><br><br>
+      </div>
+		</div>
+		</div>
+		</div>
+	</div>
+    
+       <div class="col-md-4"></div>
+        <div class="card border-info mb-3 col-md-4" style="max-width: 35rem;">         
+          <div class="card-body">
+            <h5 class="card-title"  style="float: right" style="color: white;"><u>Production  Pitch</u></h5>
+            <li>
+              <a href="">
+                  <aside class="dates" style="color: white;">10/23/2016</aside>
+              </a>
+              <p class="mb0" style="color: white;">Posted by</p>
+              <a href="">
+                  Pauline
+              </a>
+            <p class="card-text" style="color: white;"> Although the stars of the studio's movies range from robots to sea life to talking toys, each has a similar story structure at its core.</p><br>
+            <li>
+              <a href="">
+                  <aside class="dates" style="color: white;">09/05/2020</aside>
+              </a>
+              <p class="mb0" style="color: white;">Posted by</p>
+              <a href="">
+                  Maxwell
+              </a>
+            <p class="card-text" style="color: white;"> Once upon a time, staffing agencies struggled to find the quality talent they needed.</p><br>
+            <li>
+              <a href="">
+                  <aside class="dates" style="color: white;">03/10/2019</aside>
+              </a>
+              <p class="mb0" style="color: white;">Posted by</p>
+              <a href="">
+                  Adrian
+              </a>
+            <p class="card-text" style="color: white;"> Every day, they checked a number of social media sites and sifted through dozens of resumes searching for needles in the haystacks.</p><br>
+            <li>
+              <a href="">
+                  <aside class="dates" style="color: white;">01/21/2018</aside>
+              </a>
+              <p class="mb0" style="color: white;">Posted by</p>
+              <a href="">
+                  Jermaine
+              </a>
+            <p class="card-text" style="color: white;"> Until finally, the agencies vastly increased their number of customers and amount of new revenue.</p><br>
+            <li>
+              <a href="">
+                  <aside class="dates" style="color: white;">12/9/2020</aside>
+              </a>
+              <p class="mb0" style="color: white;">Posted by</p>
+              <a href="">
+                  Tabitha
+              </a>
+            <button type="button" class="btn btn-success" style="color: white;"><a href='/comment/<int:pitch_id>'>Comment Pitch</a></button><br><br>
+        </div>
+        </div>
+
+</body>
+  {% endblock%}

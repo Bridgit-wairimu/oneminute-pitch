@@ -27,7 +27,7 @@ def category(category):
     '''
     function to return the pitches by category
     '''
-    category = Pitches.get_pitches(category)
+    category = Pitch.get_pitch(category)
     title = f'{category}'
     return render_template('category.html',title = title, category = category)
 
