@@ -13,7 +13,7 @@ class Config:
     MAIL_PORT = 587
     MAIL_USE_TLS = True
     MAIL_USERNAME = "kirikabridgit@gmail.com"
-    MAIL_PASSWORD = "90#7&589@"
+    MAIL_PASSWORD = "9089%300"
 
 
 class ProdConfig(Config):
