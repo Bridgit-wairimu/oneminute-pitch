@@ -26,8 +26,8 @@ def register():
     registration_form = RegistrationForm()
     if registration_form.validate_on_submit():
         user = User(email = registration_form.email.data, username = registration_form.username.data,password = registration_form.password.data)
-        db.session.add(user)
-        db.session.commit()
+        # db.session.add(user)
+        # db.session.commit()
 
         mail_message("Welcome to oneminute pitch","email/welcome_user",user.email,user=user)
 

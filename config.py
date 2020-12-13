@@ -15,6 +15,7 @@ class Config:
     MAIL_USERNAME = "kirikabridgit@gmail.com"
     MAIL_PASSWORD = "90#7&589@"
 
+
 class ProdConfig(Config):
 
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres:bridgit@localhost/pitch'
